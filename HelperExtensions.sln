@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29424.173
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelperExtensions", "Extensions\HelperExtensions.csproj", "{E914E9CA-1B95-41DD-B0DD-5D98B0AC6B82}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelperExtensionsTests", "ExtensionsTests\HelperExtensionsTests.csproj", "{8ABA65DD-BEDA-439F-AA3D-7CE0A120EAA6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E914E9CA-1B95-41DD-B0DD-5D98B0AC6B82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E914E9CA-1B95-41DD-B0DD-5D98B0AC6B82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E914E9CA-1B95-41DD-B0DD-5D98B0AC6B82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E914E9CA-1B95-41DD-B0DD-5D98B0AC6B82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8ABA65DD-BEDA-439F-AA3D-7CE0A120EAA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8ABA65DD-BEDA-439F-AA3D-7CE0A120EAA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8ABA65DD-BEDA-439F-AA3D-7CE0A120EAA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8ABA65DD-BEDA-439F-AA3D-7CE0A120EAA6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E7555B7B-7831-41C1-BC82-80CE612B485C}
+	EndGlobalSection
+EndGlobal
