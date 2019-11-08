@@ -1,5 +1,5 @@
 ﻿using Xunit;
-using Jp.HelperExtensions;
+using RJPSoft.HelperExtensions;
 
 namespace ExtensionsTests
 {

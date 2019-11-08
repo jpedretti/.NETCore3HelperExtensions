@@ -1,4 +1,4 @@
-﻿using Jp.HelperExtensions;
+﻿using RJPSoft.HelperExtensions;
 using Xunit;
 
 namespace ExtensionsTests

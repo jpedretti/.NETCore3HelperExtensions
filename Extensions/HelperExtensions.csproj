@@ -7,6 +7,19 @@
     <RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
     <RunAnalyzersDuringLiveAnalysis>true</RunAnalyzersDuringLiveAnalysis>
     <WarningsAsErrors>CS8600;CS8602;CS8603</WarningsAsErrors>
+    <Authors>José Pedretti Neto</Authors>
+    <Company>RJPSoft</Company>
+    <RepositoryUrl>https://github.com/jpedretti/.NETCore3HelperExtensions</RepositoryUrl>
+    <Description>A set of extensions to maximize productivity and help writing cleaner code</Description>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>RJPSoft.HelperExtensions</PackageId>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Copyright>RJPSoft</Copyright>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <WarningLevel>2</WarningLevel>
   </PropertyGroup>
 
 </Project>

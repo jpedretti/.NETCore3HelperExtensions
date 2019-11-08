@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Jp.HelperExtensions
+namespace RJPSoft.HelperExtensions
 {
     public static class ClassExtensions
     {

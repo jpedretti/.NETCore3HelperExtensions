@@ -1,5 +1,8 @@
-# .NETCore3HelperExtensons
+# HelperExtensons
 A set of extensions to maximize productivity and help writing cleaner code
+
+### Get it on Nuget
+[Donwload from nuget](https://www.nuget.org/packages/RJPSoft.HelperExtensions)
 
 #### Dealing with nullable objects
 
