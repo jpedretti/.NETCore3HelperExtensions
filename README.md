@@ -1,4 +1,4 @@
-# HelperExtensons
+# HelperExtensions
 A set of extensions to maximize productivity and help writing cleaner code
 
 ### Get it on Nuget
