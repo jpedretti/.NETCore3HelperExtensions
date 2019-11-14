@@ -59,7 +59,7 @@ val myNewEntity = myNullableEntity?.Let(notNullEntity =>
 //if your logic is short, can be done in one line
 val myNewEntity = myNullableEntity?.Let(notNullEntity => //newvalue);
 ```
-It's possible to use the nice elvis operator to handle the null scenario:</br>
+It's possible to use the nice Null-coalescing operator to handle the null scenario:</br>
 ```c#
 val myNewEntity = myNullableEntity?.Let(notNullEntity => //newvalue) ?? someValue;
 ```
