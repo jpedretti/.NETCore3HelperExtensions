@@ -10,7 +10,7 @@ namespace ExtensionsTests
         {
             int? myNullStruct = null;
 
-            var result = myNullStruct?.Let(n => n);
+            var result = myNullStruct.Let(n => n);
 
             Assert.Null(result);
         }
@@ -20,7 +20,7 @@ namespace ExtensionsTests
         {
             int? myStruct = 17;
 
-            var result = myStruct?.Let(n => n);
+            var result = myStruct.Let(n => n);
 
             Assert.Equal(17, result);
         }

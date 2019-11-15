@@ -10,7 +10,7 @@ namespace ExtensionsTests
         {
             TestClass? myNullreference = null;
 
-            var result = myNullreference?.Let(n => $"my name is {n.Name}");
+            var result = myNullreference.Let(n => $"my name is {n.Name}");
 
             Assert.Null(result);
         }
@@ -21,7 +21,7 @@ namespace ExtensionsTests
             TestClass? myInstance = null;
             myInstance = new TestClass("Luke");
 
-            var result = myInstance?.Let(n => $"my name is {n.Name}");
+            var result = myInstance.Let(n => $"my name is {n.Name}");
 
             Assert.Equal("my name is Luke", result);
         }
@@ -31,7 +31,7 @@ namespace ExtensionsTests
         {
             TestClass? myNullReference = null;
             var name = "";
-            myNullReference?.Run(n => name = n.Name);
+            myNullReference.Run(n => name = n.Name);
 
             Assert.Equal("", name);
         }
@@ -43,7 +43,7 @@ namespace ExtensionsTests
             myinstance = new TestClass("Luke");
             var name = string.Empty;
 
-            myinstance?.Run(n => name = n.Name);
+            myinstance.Run(n => name = n.Name);
 
             Assert.Equal("Luke", name);
         }

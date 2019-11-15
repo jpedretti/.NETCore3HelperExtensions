@@ -20,7 +20,7 @@ if (myNullableEntity != null)
 
 To this:</br>
 ```c#
-myNullableEntity?.Run(notNullEntity => 
+myNullableEntity.Run(notNullEntity => 
 {
 	DoSomething(notNullEntity);
 	// wherever more you need	
@@ -42,24 +42,24 @@ var myNewEntity = //whatever you need
 if (myNullableEntity != null)
 {
 	//do something to calaculate your new value
-	myNewEntity = //some value based on myNullableEntity
+	myNewEntity = /*some value based on myNullableEntity*/
 }
 
 //use your new value
 ```
 or, you can change to a nice extension
 ```c#
-var myNewEntity = myNullableEntity?.Let(notNullEntity =>
+var myNewEntity = myNullableEntity.Let(notNullEntity =>
 {
 	//do something to calaculate your new value
-	return //some value based on myNullableEntity
+	return /*some value based on myNullableEntity*/;
 });
 //use your new value
 
 //if your logic is short, can be done in one line
-var myNewEntity = myNullableEntity?.Let(notNullEntity => //newvalue);
+var myNewEntity = myNullableEntity.Let(notNullEntity => /*newvalue*/);
 ```
 It's possible to use the nice Null-coalescing operator to handle the null scenario:</br>
 ```c#
-var myNewEntity = myNullableEntity?.Let(notNullEntity => //newvalue) ?? someValue;
+var myNewEntity = myNullableEntity.Let(notNullEntity => /*newvalue*/) ?? someValue;
 ```
