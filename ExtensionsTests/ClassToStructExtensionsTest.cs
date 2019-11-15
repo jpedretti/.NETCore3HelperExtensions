@@ -10,7 +10,7 @@ namespace ExtensionsTests
         {
             TestClass? myNullreference = null;
 
-            var result = myNullreference?.Let(n => n.Age);
+            var result = myNullreference.Let(n => n.Age);
 
             Assert.Null(result);
         }
@@ -21,7 +21,7 @@ namespace ExtensionsTests
             TestClass? myInstance = null;
             myInstance = new TestClass(17);
 
-            var result = myInstance?.Let(n => n.Age);
+            var result = myInstance.Let(n => n.Age);
 
             Assert.Equal(17, result);
         }
