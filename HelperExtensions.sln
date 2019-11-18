@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelperExtensions", "Extensi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelperExtensionsTests", "ExtensionsTests\HelperExtensionsTests.csproj", "{8ABA65DD-BEDA-439F-AA3D-7CE0A120EAA6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelperExtensionsWithoutNullableEnabledTests", "HelperExtensionsWithoutNullableEnabledTests\HelperExtensionsWithoutNullableEnabledTests.csproj", "{86E74B31-5CC9-42F8-815D-E33255063D12}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{8ABA65DD-BEDA-439F-AA3D-7CE0A120EAA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8ABA65DD-BEDA-439F-AA3D-7CE0A120EAA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8ABA65DD-BEDA-439F-AA3D-7CE0A120EAA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86E74B31-5CC9-42F8-815D-E33255063D12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86E74B31-5CC9-42F8-815D-E33255063D12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86E74B31-5CC9-42F8-815D-E33255063D12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86E74B31-5CC9-42F8-815D-E33255063D12}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
