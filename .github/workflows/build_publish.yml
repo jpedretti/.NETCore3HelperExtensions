@@ -7,7 +7,9 @@ on:
 
 jobs:
   build:
-
+    env:
+      PACKAGE_VERSION: 1.0.3
+      FILE_NAME: RJPSoft.HelperExtensions.$FILE_NAME.nupkg
     runs-on: ubuntu-latest
 
     steps:
@@ -22,11 +24,15 @@ jobs:
 
     - name: Test
       run: dotnet test -c Release
+    
+    - name: Pack
+      run: dotnet pack -p:PackageVersion=$PACKAGE_VERSION -c Release
 
     - name: Publish
       env:
         NUGET_TOKEN: ${{ secrets.NUGET_TOKEN }}
-      run: dotnet nuget push ExtensionsTests/bin/Release/*.nupkg -k $NUGET_TOKEN -s https://api.nuget.org/v3/index.json
+      run: dotnet nuget push $FILE_NAME -k $NUGET_TOKEN -s https://api.nuget.org/v3/index.json
+      working-directory: /home/runner/work/.NETCore3HelperExtensions/.NETCore3HelperExtensions/ExtensionsTests/bin/Release
 
     - name: Clean
       if: always()
