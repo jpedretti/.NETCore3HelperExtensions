@@ -9,7 +9,7 @@ jobs:
   build:
     env:
       PACKAGE_VERSION: 1.0.3
-      FILE_NAME: ${{RJPSoft.HelperExtensions.$PACKAGE_VERSION.nupkg}}
+      FILE_NAME: ${{format('RJPSoft.HelperExtensions.{0}.nupkg', $PACKAGE_VERSION)}}
     runs-on: ubuntu-latest
 
     steps:
@@ -27,7 +27,7 @@ jobs:
     
     - name: Pack
       env:
-        PACKAGE: ${{-p:PackageVersion=$PACKAGE_VERSION}}
+        PACKAGE: ${{format('-p:PackageVersion={0}',$PACKAGE_VERSION}}
       run: dotnet pack $PACKAGE -c Release
 
     - name: Publish
