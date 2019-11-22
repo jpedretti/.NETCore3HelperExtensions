@@ -1,11 +1,10 @@
 ﻿using FluentAssertions;
-using HelperExtensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 
-namespace ExtensionsTests
+namespace RJPSoft.HelperExtensions
 {
     public class CollectionExtensionsTest
     {

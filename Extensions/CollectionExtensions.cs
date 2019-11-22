@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace HelperExtensions
+namespace RJPSoft.HelperExtensions
 {
     public static class CollectionExtensions
     {
