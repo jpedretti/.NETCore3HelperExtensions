@@ -28,7 +28,7 @@ jobs:
     - name: Publish
       env:
         NUGET_TOKEN: ${{ secrets.NUGET_TOKEN }}
-      run: dotnet nuget push RJPSoft.HelperExtensions.1.0.3.nupkg -k $NUGET_TOKEN -s https://api.nuget.org/v3/index.json
+      run: dotnet nuget push /home/runner/work/.NETCore3HelperExtensions/.NETCore3HelperExtensions/ExtensionsTests/bin/Release/RJPSoft.HelperExtensions.1.0.3.nupkg -k $NUGET_TOKEN -s https://api.nuget.org/v3/index.json
       working-directory: /home/runner/work/.NETCore3HelperExtensions/.NETCore3HelperExtensions/ExtensionsTests/bin/Release
 
     - name: Clean

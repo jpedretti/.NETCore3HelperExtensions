@@ -11,12 +11,10 @@
     <Company>RJPSoft</Company>
     <RepositoryUrl>https://github.com/jpedretti/.NETCore3HelperExtensions</RepositoryUrl>
     <Description>A set of extensions to maximize productivity and help writing cleaner code</Description>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>RJPSoft.HelperExtensions</PackageId>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Copyright>RJPSoft</Copyright>
-    <Version>1.0.3</Version>
     
   </PropertyGroup>
 
