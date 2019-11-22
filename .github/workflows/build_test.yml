@@ -24,6 +24,6 @@ jobs:
     - name: Test with dotnet
       run: dotnet test -c Release
 
-    -name: Clean
+    - name: Clean
       if: always()
       run: dotnet clean -c Release

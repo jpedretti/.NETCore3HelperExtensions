@@ -29,6 +29,6 @@ jobs:
       run: dotnet nuget push *.nupkg -k $NUGET_TOKEN
       working-directory: /Extensions/bin/Release/
 
-    -name: Clean
+    - name: Clean
       if: always()
       run: dotnet clean -c Release
