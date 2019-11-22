@@ -26,8 +26,7 @@ jobs:
     - name: Publish
       env:
         NUGET_TOKEN: ${{ secrets.NUGET_TOKEN }}
-      run: dotnet nuget push *.nupkg -k $NUGET_TOKEN -s https://api.nuget.org/v3/index.json
-      working-directory: /home/runner/work/.NETCore3HelperExtensions/.NETCore3HelperExtensions/ExtensionsTests/bin/Release
+      run: dotnet nuget push ExtensionsTests/bin/Release/*.nupkg -k $NUGET_TOKEN -s https://api.nuget.org/v3/index.json
 
     - name: Clean
       if: always()
