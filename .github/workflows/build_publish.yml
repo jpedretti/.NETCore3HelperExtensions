@@ -21,9 +21,9 @@ jobs:
       run: dotnet build -c Release
 
     - name: Test
-      run: dotnet test
+      run: dotnet test -c Release
 
-    -name: Publish
+    - name: Publish
       env:
         NUGET_TOKEN: ${{ secrets.NUGET_TOKEN }}
       run: dotnet nuget push *.nupkg -k $NUGET_TOKEN
