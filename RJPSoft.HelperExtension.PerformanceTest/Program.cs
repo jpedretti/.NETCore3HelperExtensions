@@ -38,7 +38,7 @@ namespace RJPSoft.HelperExtension.PerformanceTest
             void Generate(int numOfElements, double sparse)
             {
                 dataList.Clear();
-                for (int i = 0; i < numOfElements; i++)
+                for (var i = 0; i < numOfElements; i++)
                 {
                     var n = rnd.NextDouble();
                     dataList.Add(n >= sparse ? 1 : (byte?)null);
@@ -48,7 +48,7 @@ namespace RJPSoft.HelperExtension.PerformanceTest
             string Measure()
             {
                 stopWatch.Restart();
-                var _ = dataList.NonNull();
+                var _ = dataList.FilterNotNull();
                 stopWatch.Stop();
                 return Format(stopWatch.Elapsed);
             }
