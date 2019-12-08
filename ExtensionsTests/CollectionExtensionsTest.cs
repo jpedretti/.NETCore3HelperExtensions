@@ -1,7 +1,6 @@
 ﻿using FluentAssertions;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Xunit;
 
@@ -164,10 +163,11 @@ namespace RJPSoft.HelperExtensions
         [Fact(DisplayName = "HashSet: Flatten should remove null from collection of class")]
         public void CollectionExtensions_HashSet_Flatten_Should_RemoveNull_Class()
         {
-            var collection = new HashSet<Uri?>() { new Uri("file://local"), null, new Uri("https://github.com") };
+            var collection = new HashSet<Uri?>(new NullableUriEqualityComparer()) { new Uri("file://local"), null, new Uri("https://github.com") };
             var flattened = collection.FilterNotNull();
             flattened.Should().BeOfType<HashSet<Uri>>();
             flattened.Should().Equal(new HashSet<Uri>() { new Uri("file://local"), new Uri("https://github.com") });
+            collection.Comparer.Should().BeSameAs(flattened.Comparer);
         }
 
         [Fact(DisplayName = "HashSet: Flatten should remove null from collection of struct")]
@@ -189,9 +189,11 @@ namespace RJPSoft.HelperExtensions
                 null,
                 new MyStruct { Id = 4 },
                 new MyStruct { Id = 5 } };
-            var flattened = collection.FilterNotNull(new MyStructEqualityComparer());
+            var comparer = new MyStructEqualityComparer();
+            var flattened = collection.FilterNotNull(comparer);
             flattened.Should().BeOfType<HashSet<MyStruct>>();
             flattened.Should().Equal(new HashSet<MyStruct>() { new MyStruct { Id = 1 }, new MyStruct { Id = 2 }, new MyStruct { Id = 4 }, new MyStruct { Id = 5 } });
+            flattened.Comparer.Should().Equals(comparer);
         }
 
         [Fact(DisplayName = "SortedSet: Flatten should remove null from collection of class")]
@@ -202,6 +204,7 @@ namespace RJPSoft.HelperExtensions
             var flattened = collection.FilterNotNull();
             flattened.Should().BeOfType<SortedSet<Uri>>();
             flattened.Should().Equal(new SortedSet<Uri>(comparer) { new Uri("file://local"), new Uri("https://github.com") });
+            flattened.Comparer.Should().BeSameAs(comparer);
         }
 
         [Fact(DisplayName = "SortedSet: Flatten should remove null from collection of struct")]
@@ -223,7 +226,8 @@ namespace RJPSoft.HelperExtensions
                 new MyStruct { Id = 4 }, new MyStruct { Id = 5 }
             };
 
-            var flattened = collection.FilterNotNull(new MyStructComparer());
+            var comparer = new MyStructComparer();
+            var flattened = collection.FilterNotNull(comparer);
             flattened.Should().BeOfType<SortedSet<MyStruct>>();
             flattened.Should().Equal(new SortedSet<MyStruct>(new MyStructComparer()) {
                 new MyStruct { Id = 1 },
@@ -231,6 +235,7 @@ namespace RJPSoft.HelperExtensions
                 new MyStruct { Id = 4 },
                 new MyStruct { Id = 5 }
             });
+            flattened.Comparer.Should().Equals(comparer);
         }
 
         #endregion
@@ -256,18 +261,5 @@ namespace RJPSoft.HelperExtensions
         }
 
         #endregion
-
-        class NullableUriComparer : IComparer<Uri?>
-        {
-            public int Compare(Uri? x, Uri? y)
-            {
-                if (x is Uri xV && y is Uri yV)
-                {
-                    return xV.ToString().CompareTo(yV.ToString());
-                }
-
-                return x != null ? 1 : -1;
-            }
-        }
     }
 }
