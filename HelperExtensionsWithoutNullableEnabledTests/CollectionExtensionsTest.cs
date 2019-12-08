@@ -130,7 +130,7 @@ namespace RJPSoft.HelperExtensions
             var flattened = collection.FilterNotNull();
             flattened.Should().BeOfType<SortedList<string, int>>();
             flattened.Should().BeEquivalentTo(
-                new SortedList<string, int?>() { { "3", 3 }, { "2", 2 } },
+                new SortedList<string, int>() { { "3", 3 }, { "2", 2 } },
                 options => options.WithStrictOrdering()
             );
         }
@@ -182,14 +182,14 @@ namespace RJPSoft.HelperExtensions
         [Fact(DisplayName = "HashSet with comparer: Flatten should remove null from collection of struct")]
         public void CollectionExtensions_HashSet_Comparer_Flatten_Should_RemoveNull_Struct()
         {
-            var collection = new HashSet<MyStruct?>(new MyStructEqualityCompararNullable()) { 
+            var collection = new HashSet<MyStruct?>(new MyStructEqualityComparerNullable()) { 
                 new MyStruct { Id = 1 },
                 new MyStruct { Id = 2 },
                 new MyStruct { Id = 1 }, 
                 null, 
                 new MyStruct { Id = 4 }, 
                 new MyStruct { Id = 5 } };
-            var flattened = collection.FilterNotNull(new MyStructEqualityComparar());
+            var flattened = collection.FilterNotNull(new MyStructEqualityComparer());
             flattened.Should().BeOfType<HashSet<MyStruct>>();
             flattened.Should().Equal(new HashSet<MyStruct>() { new MyStruct { Id = 1 }, new MyStruct { Id = 2 }, new MyStruct { Id = 4 }, new MyStruct { Id = 5 } });
         }
@@ -216,16 +216,16 @@ namespace RJPSoft.HelperExtensions
         [Fact(DisplayName = "SortedSet wit comparer: Flatten should remove null from collection of struct")]
         public void CollectionExtensions_SortedSet_Comparer_Flatten_Should_RemoveNull_Struct()
         {
-            var collection = new SortedSet<MyStruct?>(new MyStructCompararNullable()) {
+            var collection = new SortedSet<MyStruct?>(new MyStructComparerNullable()) {
                 new MyStruct { Id = 1 }, new MyStruct { Id = 2 }, 
                 new MyStruct { Id = 1 }, 
                 null, 
                 new MyStruct { Id = 4 }, new MyStruct { Id = 5 } 
             };
 
-            var flattened = collection.FilterNotNull(new MyStructComparar());
+            var flattened = collection.FilterNotNull(new MyStructComparer());
             flattened.Should().BeOfType<SortedSet<MyStruct>>();
-            flattened.Should().Equal(new SortedSet<MyStruct>(new MyStructComparar()) { 
+            flattened.Should().Equal(new SortedSet<MyStruct>(new MyStructComparer()) { 
                 new MyStruct { Id = 1 }, 
                 new MyStruct { Id = 2 }, 
                 new MyStruct { Id = 4 }, 
@@ -268,43 +268,6 @@ namespace RJPSoft.HelperExtensions
 
                 return x != null ? 1 : -1;
             }
-        }
-
-        struct MyStruct
-        {
-            public int Id { get; set; }
-        }
-
-        struct MyStructCompararNullable : IComparer<MyStruct?>
-        {
-            public int Compare([AllowNull] MyStruct? x, [AllowNull] MyStruct? y)
-            {
-                if(x is MyStruct vX && y is MyStruct vY)
-                {
-                    return vX.Id.CompareTo(vY.Id);
-                }
-
-                return x != null ? 1 : -1;
-            }
-        }
-
-        struct MyStructComparar : IComparer<MyStruct>
-        {
-            public int Compare([AllowNull] MyStruct x, [AllowNull] MyStruct y) => x.Id.CompareTo(y.Id);
-        }
-
-        struct MyStructEqualityCompararNullable : IEqualityComparer<MyStruct?>
-        {
-            public bool Equals([AllowNull] MyStruct? x, [AllowNull] MyStruct? y) => x?.Id == y?.Id;
-
-            public int GetHashCode([DisallowNull] MyStruct? obj) => obj.Value.Id;
-        }
-
-        struct MyStructEqualityComparar : IEqualityComparer<MyStruct>
-        {
-            public bool Equals([AllowNull] MyStruct x, [AllowNull] MyStruct y) => x.Id == y.Id;
-
-            public int GetHashCode([DisallowNull] MyStruct obj) => obj.Id;
         }
     }
 }

@@ -26,6 +26,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Extensions\HelperExtensions.csproj" />
+    <ProjectReference Include="..\RJPSoft.HelperExtensions.Test.Shared\RJPSoft.HelperExtensions.Test.Shared.csproj" />
   </ItemGroup>
 
 </Project>

@@ -71,7 +71,6 @@ namespace RJPSoft.HelperExtensions
         {
             var nonNull = new LinkedList<T>();
             foreach (var item in collection)
-
             {
                 if (item is T valueOfT)
                 {
@@ -85,7 +84,6 @@ namespace RJPSoft.HelperExtensions
         {
             var nonNull = new LinkedList<T>();
             foreach (var item in collection)
-
             {
                 if (item is T valueOfT)
                 {
@@ -113,7 +111,6 @@ namespace RJPSoft.HelperExtensions
         {
             var nonNull = new SortedList<U, T>(collection.Comparer);
             foreach (var item in collection)
-
             {
                 if (item.Value is T valueOfT)
                 {
@@ -216,20 +213,20 @@ namespace RJPSoft.HelperExtensions
             return nonNull;
         }
 
-        public static SortedSet<T> FilterNotNull<T>(this SortedSet<T?> collection) where T : struct
-        {
-            var nonNull = new SortedSet<T>();
-            foreach (var item in collection)
-            {
-                if (item is T valueOfT)
-                {
-                    nonNull.Add(valueOfT);
-                }
-            }
-            return nonNull;
-        }
+        //public static SortedSet<T> FilterNotNull<T>(this SortedSet<T?> collection) where T : struct
+        //{
+        //    var nonNull = new SortedSet<T>();
+        //    foreach (var item in collection)
+        //    {
+        //        if (item is T valueOfT)
+        //        {
+        //            nonNull.Add(valueOfT);
+        //        }
+        //    }
+        //    return nonNull;
+        //}
 
-        public static SortedSet<T> FilterNotNull<T>(this SortedSet<T?> collection, IComparer<T> comparer) where T : struct
+        public static SortedSet<T> FilterNotNull<T>(this SortedSet<T?> collection, IComparer<T>? comparer = null) where T : struct
         {
             var nonNull = new SortedSet<T>(comparer);
             foreach (var item in collection)
@@ -307,7 +304,6 @@ namespace RJPSoft.HelperExtensions
         {
             var nonNull = new Queue<T>();
             foreach (var item in collection)
-
             {
                 if (item is T valueOfT)
                 {
@@ -321,7 +317,6 @@ namespace RJPSoft.HelperExtensions
         {
             var nonNull = new Queue<T>();
             foreach (var item in collection)
-
             {
                 if (item is T valueOfT)
                 {
@@ -339,7 +334,6 @@ namespace RJPSoft.HelperExtensions
         {
             var nonNull = new Stack<T>();
             foreach (var item in collection)
-
             {
                 if (item is T valueOfT)
                 {
@@ -353,7 +347,6 @@ namespace RJPSoft.HelperExtensions
         {
             var nonNull = new Stack<T>();
             foreach (var item in collection)
-
             {
                 if (item is T valueOfT)
                 {
