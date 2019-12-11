@@ -9,6 +9,18 @@
 
 ### What's New
 
+#### V 1.2.0
+
+Added forEachNotNull for the following types:
+
+- `LinkedList`
+- `SortedList`
+- `HashSet` with an overload that receives a new comparer
+- `SortedSet` with an overload that receives a new comparer
+- `SortedDictionary`
+- `Queue`
+- `Stack`
+
 #### V 1.1.0
 
 - `ForEachNotNull`
@@ -42,8 +54,8 @@ Using this set of extensions we can!
 ```c#
 if (myNullableEntity != null)
 {
-	DoSomething(myNullableEntity);
-	// wherever more you need
+    DoSomething(myNullableEntity);
+    // wherever more you need
 }
 ```
 
@@ -51,8 +63,8 @@ To this:
 ```c#
 myNullableEntity.Run(notNullEntity => 
 {
-	DoSomething(notNullEntity);
-	// wherever more you need	
+    DoSomething(notNullEntity);
+    // wherever more you need	
 });
 ```
 
@@ -60,9 +72,9 @@ If you need to use some data created based on your nullable entity you can do th
 ```c#
 if (myNullableEntity != null)
 {
-	DoSomething(myNullableEntity);
-	// whatever more you need
-	// lots ans lots of code that dependes on myNullableEntity value or somethig created from it
+    DoSomething(myNullableEntity);
+    // whatever more you need
+    // lots ans lots of code that dependes on myNullableEntity value or somethig created from it
 }
 ```
 or this:
@@ -70,8 +82,8 @@ or this:
 var myNewEntity = //whatever you need
 if (myNullableEntity != null)
 {
-	//do something to calaculate your new value
-	myNewEntity = /*some value based on myNullableEntity*/
+    //do something to calaculate your new value
+    myNewEntity = /*some value based on myNullableEntity*/
 }
 
 //use your new value
@@ -80,8 +92,8 @@ or, you can change to a nice extension
 ```c#
 var myNewEntity = myNullableEntity.Let(notNullEntity =>
 {
-	//do something to calaculate your new value
-	return /*some value based on myNullableEntity*/;
+    //do something to calaculate your new value
+    return /*some value based on myNullableEntity*/;
 });
 //use your new value
 
