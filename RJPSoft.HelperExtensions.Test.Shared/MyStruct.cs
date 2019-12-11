@@ -30,7 +30,7 @@ namespace RJPSoft.HelperExtensions
     {
         public bool Equals([AllowNull] MyStruct? x, [AllowNull] MyStruct? y) => x?.Id == y?.Id;
 
-        public int GetHashCode([DisallowNull] MyStruct? obj) => obj.Value.Id.GetHashCode();
+        public int GetHashCode([DisallowNull] MyStruct? obj) => obj.HasValue ? obj.Value.Id.GetHashCode() : 0;
     }
 
     public struct MyStructEqualityComparer : IEqualityComparer<MyStruct>

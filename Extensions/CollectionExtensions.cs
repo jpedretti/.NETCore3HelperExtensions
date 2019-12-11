@@ -44,7 +44,6 @@ namespace RJPSoft.HelperExtensions
         {
             var nonNull = new List<T>();
             foreach (var item in collection)
-
             {
                 if (item is T valueOfT)
                 {
@@ -212,19 +211,6 @@ namespace RJPSoft.HelperExtensions
             }
             return nonNull;
         }
-
-        //public static SortedSet<T> FilterNotNull<T>(this SortedSet<T?> collection) where T : struct
-        //{
-        //    var nonNull = new SortedSet<T>();
-        //    foreach (var item in collection)
-        //    {
-        //        if (item is T valueOfT)
-        //        {
-        //            nonNull.Add(valueOfT);
-        //        }
-        //    }
-        //    return nonNull;
-        //}
 
         public static SortedSet<T> FilterNotNull<T>(this SortedSet<T?> collection, IComparer<T>? comparer = null) where T : struct
         {

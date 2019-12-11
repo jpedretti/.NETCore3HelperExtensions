@@ -129,7 +129,7 @@ namespace RJPSoft.HelperExtensions
             var flattened = collection.FilterNotNull();
             flattened.Should().BeOfType<SortedList<string, int>>();
             flattened.Should().BeEquivalentTo(
-                new SortedList<string, int?>() { { "3", 3 }, { "2", 2 } },
+                new SortedList<string, int>() { { "3", 3 }, { "2", 2 } },
                 options => options.WithStrictOrdering()
             );
         }
